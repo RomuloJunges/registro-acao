@@ -14,26 +14,26 @@
 	<h1 class="text-center">Registro de Ações</h1>
 	<div id="mensagemView"></div>
 
-	<form class="form" action="">
+	<form class="form" action="registrarAcao" method="post">
 
 		<div class="form-group">
-			<label for="valor">Código</label> <input id="codigo" type="text"
+			<label for="valor">Código</label> <input id="codigo" name="codigo" type="text"
 				class="form-control" required autofocus/>
 		</div>
 
 		<div class="form-group">
-			<label for="data">Data</label> <input type="date" id="data"
+			<label for="data">Data</label> <input type="date" id="data" name="data"
 				class="form-control" />
 		</div>
 
 		<div class="form-group">
 			<label for="quantidade">Quantidade</label> <input type="number"
-				min="1" step="1" id="quantidade" class="form-control" value="1"
+				min="1" step="1" id="quantidade" name="quantidade" class="form-control" value="1"
 				required />
 		</div>
 
 		<div class="form-group">
-			<label for="valor">Valor</label> <input id="valor" type="number"
+			<label for="valor">Valor</label> <input id="valor" name="valor" type="number"
 				class="form-control" min="0.01" step="0.01" value="0.0" required />
 		</div>
 
