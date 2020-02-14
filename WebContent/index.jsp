@@ -6,10 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Registro de Ações</title>
-<link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
-<body class="container">
+<body class="container bg-light">
 
 	<h1 class="text-center">Registro de Ações</h1>
 	<div id="mensagemView"></div>
@@ -37,20 +38,21 @@
 				class="form-control" min="0.01" step="0.01" value="0.0" required />
 		</div>
 
-		<button class="btn btn-primary" type="submit">Adicionar</button>
+		<button class="btn btn-dark" type="submit">Adicionar</button>
 	</form>
 	
 	<br>
     <br>
 
-    <table class="table table-hover table-bordered">
-        <thead>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark text-center">
             <tr>
-            	<th>CÓDIGO</th>
-                <th>DATA</th>
-                <th>QUANTIDADE</th>
-                <th>VALOR</th>
-                <th>VOLUME</th>
+            	<th scope="col">CÓDIGO</th>
+                <th scope="col">DATA</th>
+                <th scope="col">QUANTIDADE</th>
+                <th scope="col">VALOR</th>
+                <th scope="col">VOLUME</th>
+                <th scope="col">REMOVER / EDITAR</th>
             </tr>
         </thead>
         
