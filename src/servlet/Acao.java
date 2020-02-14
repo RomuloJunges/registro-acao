@@ -22,9 +22,16 @@ public class Acao extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		try {
+			RequestDispatcher view = req.getRequestDispatcher("/index.jsp");
+			req.setAttribute("investimentos", acaoDAO.listar());
+			view.forward(req, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -42,10 +49,14 @@ public class Acao extends HttpServlet {
 		acao.setValor(Double.parseDouble(valor));
 
 		acaoDAO.salvar(acao);
-		
-		RequestDispatcher view = req.getRequestDispatcher("/index.jsp");
-		view.forward(req, res);
 
+		try {
+			RequestDispatcher view = req.getRequestDispatcher("/index.jsp");
+			req.setAttribute("investimentos", acaoDAO.listar());
+			view.forward(req, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

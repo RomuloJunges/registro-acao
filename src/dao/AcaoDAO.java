@@ -2,7 +2,11 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import beans.AcaoBean;
 import connection.SingleConnection;
@@ -32,5 +36,25 @@ public class AcaoDAO {
 				e1.printStackTrace();
 			}
 		}
+	}
+
+	public java.util.List<AcaoBean> listar() throws Exception {
+		java.util.List<AcaoBean> listar = new ArrayList<AcaoBean>();
+
+		String sql = "SELECT * FROM tb_acoes";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet resultSet = statement.executeQuery();
+
+		while (resultSet.next()) {
+			AcaoBean ac = new AcaoBean();
+			ac.setCodigo(resultSet.getString("codigo_acao"));
+			ac.setValor(resultSet.getDouble("valor_acao"));
+			ac.setQuantidade(resultSet.getDouble("quantidade_acao"));
+			ac.setData(resultSet.getString("data_compra"));
+
+			listar.add(ac);
+		}
+
+		return listar;
 	}
 }
