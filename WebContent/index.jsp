@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +50,7 @@
 	<table class="table table-striped table-bordered">
 		<thead class="thead-dark text-center">
 			<tr>
+				<th scope="col">ID</th>
 				<th scope="col">CÓDIGO</th>
 				<th scope="col">DATA</th>
 				<th scope="col">QUANTIDADE</th>
@@ -60,9 +62,9 @@
 		<tbody>
 			<c:forEach items="${investimentos}" var="inv">
 				<tr>
-
+					<td><c:out value="${inv.id}"></c:out></td>
 					<td><c:out value="${inv.codigo}"></c:out></td>
-					<td><c:out value="${inv.data}"></c:out></td>
+					<td><fmt:formatDate pattern="dd/MM/yyyy" value="${inv.data}"></fmt:formatDate></td>
 					<td><c:out value="${inv.quantidade}"></c:out></td>
 					<td>R$<c:out value="${inv.valor}"></c:out></td>
 					<td>R$<c:out value="${inv.valor * inv.quantidade}"></c:out></td>

@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,19 +38,25 @@ public class Acao extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		String codigo = req.getParameter("codigo");
-		String dataString = req.getParameter("data");
+		try {
+			String codigo = req.getParameter("codigo");
 
-		String quantidade = req.getParameter("quantidade");
-		String valor = req.getParameter("valor");
+			java.util.Date newDate = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("data"));
+			
+			String quantidade = req.getParameter("quantidade");
+			String valor = req.getParameter("valor");
 
-		AcaoBean acao = new AcaoBean();
-		acao.setCodigo(codigo);
-		acao.setData(dataString);
-		acao.setQuantidade(Double.parseDouble(quantidade));
-		acao.setValor(Double.parseDouble(valor));
+			AcaoBean acao = new AcaoBean();
+					
+			acao.setCodigo(codigo);
+			acao.setData(newDate);
+			acao.setQuantidade(Integer.parseInt(quantidade));
+			acao.setValor(Double.parseDouble(valor));
 
-		acaoDAO.salvar(acao);
+			acaoDAO.salvar(acao);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		try {
 			RequestDispatcher view = req.getRequestDispatcher("/index.jsp");

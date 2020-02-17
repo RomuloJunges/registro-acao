@@ -1,12 +1,22 @@
 package beans;
 
+import java.util.Date;
+
 public class AcaoBean {
-
+	
+	private Long id;
 	private String codigo;
-	private double quantidade;
+	private int quantidade;
 	private double valor;
-	private String data;
+	private Date data;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getCodigo() {
 		return codigo;
@@ -16,11 +26,11 @@ public class AcaoBean {
 		this.codigo = codigo;
 	}
 
-	public double getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(double quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -32,11 +42,11 @@ public class AcaoBean {
 		this.valor = valor;
 	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
