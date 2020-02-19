@@ -23,7 +23,7 @@ public class AcaoDAO {
 		try {
 			String sql = "INSERT INTO tb_acoes(codigo_acao, valor_acao, quantidade_acao, data_compra) VALUES (?,?,?,?)";
 			PreparedStatement insert = connection.prepareStatement(sql);
-			
+
 			insert.setString(1, acao.getCodigo());
 			insert.setDouble(2, acao.getValor());
 			insert.setDouble(3, acao.getQuantidade());
@@ -58,5 +58,21 @@ public class AcaoDAO {
 		}
 
 		return listar;
+	}
+
+	public void delete(int idAcao) {
+		try {
+			String sql = "DELETE FROM tb_acoes WHERE id_acoes = '" + idAcao + "'";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.execute();
+			connection.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 }
