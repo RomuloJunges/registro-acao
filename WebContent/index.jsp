@@ -90,9 +90,9 @@
 					<td><c:out value="${inv.quantidade}"></c:out></td>
 					<td>R$<c:out value="${inv.valor}"></c:out></td>
 					<td>R$<c:out value="${inv.valor * inv.quantidade}"></c:out></td>
-					<td class="text-center"><i class="fas fa-edit mr-3"> </i><a
+					<td class="text-center"><a
 						href="registrarAcao?action=delete&idAcao=${inv.id}"><i
-							class="fas fa-times"></i></a></td>
+							class="fas fa-times text-danger"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
