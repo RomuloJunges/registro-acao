@@ -1,5 +1,5 @@
 # Registro de Investimentos
-Projeto tem como finalidade fazer o registro de investimentos e com isso através dos parâmetros inseridos fazer o cálculo do quanto foi investido e listar todos os seus investimentos.
+Projeto tem como finalidade fazer o registro de investimentos e listar todos os investimentos cadastrados no sistema.
 
 ## Tecnologias Utilizadas
 * Java
